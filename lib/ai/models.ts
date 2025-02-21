@@ -1,10 +1,15 @@
-import { openai } from '@ai-sdk/openai';
+import { createOpenAI } from '@ai-sdk/openai';
 import { fireworks } from '@ai-sdk/fireworks';
 import {
   customProvider,
   extractReasoningMiddleware,
   wrapLanguageModel,
 } from 'ai';
+
+const openai = createOpenAI({
+  // ATTENTION: path里必须得有 V1, 否则500错误
+  baseURL: 'https://aihubmix.com/v1'
+});
 
 export const DEFAULT_CHAT_MODEL: string = 'chat-model-small';
 
